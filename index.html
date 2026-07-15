@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>数独原型</title>
+  <link rel="stylesheet" href="styles.css?v=20260715-15">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar" id="topBar">
+      <button class="icon-button" id="backButton" aria-label="返回">‹</button>
+      <div>
+        <div class="screen-title" id="screenTitle">数独</div>
+        <div class="screen-subtitle" id="screenSubtitle">轻松练脑，每日一题</div>
+      </div>
+      <button class="icon-button" id="themeButton" aria-label="切换主题">◐</button>
+    </header>
+
+    <main id="app" class="screen"></main>
+  </div>
+
+  <template id="homeTemplate">
+    <section class="home-panel">
+      <img class="brand-mark" src="assets/logo.jpg" alt="数独">
+      <h1>数独</h1>
+      <p>选择难度，开始今天的练习。</p>
+      <div class="primary-actions">
+        <button class="wide-button" data-difficulty-key="easy">容易</button>
+        <button class="wide-button" data-difficulty-key="hard">困难</button>
+        <button class="wide-button" data-difficulty-key="expert">专家</button>
+        <button class="wide-button" data-action="daily">每日挑战</button>
+      </div>
+    </section>
+  </template>
+
+  <template id="difficultyTemplate">
+    <section class="list-view" id="difficultyList"></section>
+  </template>
+
+  <template id="levelsTemplate">
+    <section>
+      <div class="level-grid" id="levelGrid"></div>
+    </section>
+  </template>
+
+  <template id="gameTemplate">
+    <section class="game-view">
+      <div class="game-stats">
+        <div><span id="gameModeLabel">关卡</span></div>
+        <div class="timer" id="timer">00:00</div>
+        <div>错误 <span id="mistakes">0</span>/3</div>
+      </div>
+      <div class="board-wrap">
+        <div class="sudoku-board" id="board" aria-label="数独棋盘"></div>
+      </div>
+      <div class="tool-row">
+        <button class="tool-button" id="noteButton">笔记</button>
+        <button class="tool-button" id="hintButton">提示 3</button>
+        <button class="tool-button" id="undoButton">撤销</button>
+        <button class="tool-button" id="eraseButton">擦除</button>
+        <button class="tool-button" id="pauseButton">暂停</button>
+      </div>
+      <div class="number-pad" id="numberPad"></div>
+      <button class="text-button danger" id="restartButton">重来</button>
+    </section>
+  </template>
+
+  <template id="resultTemplate">
+    <section class="result-panel">
+      <div class="result-kicker" id="resultKicker">通关成功</div>
+      <div class="stars" id="resultStars">★★★</div>
+      <div class="result-lines" id="resultLines"></div>
+      <div class="primary-actions" id="resultActions"></div>
+    </section>
+  </template>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=20260715-10"></script>
+</body>
+</html>
